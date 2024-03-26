@@ -1,0 +1,40 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>
+          welcome to charchita travels
+      </h1>
+        <div>
+      <br>
+     <form method="post" action="{% url 'random123' %}">
+       {% csrf_token %}
+       <label for="input1">Enter number</label>
+       <input type="number" name="input1" id="input1">
+       <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
+        </div>
+    </div>
+    <div class="col order-first">
+        <h1>
+            Get the OTP here
+        </h1>
+        <br><br>
+        <h1>
+            {{ran1}}
+        </h1>
+    </div>
+  </div>
+</div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,50 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+< html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>
+          welcome to charchita travels
+      </h1>
+        <div>
+      <br>
+     <form method="post" action="{% url 'pytzexample' %}">
+       {% csrf_token %}
+       <div class="dropdown-center">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Select any country
+  </button>
+  <ul class="dropdown-menu" >
+    <li><a class="dropdown-item" href="#">India/Mumbai</a></li>
+    <li><a class="dropdown-item" href="#">Europe/Berlin</a></li>
+    <li><a class="dropdown-item" href="#">Japan</a></li>
+  </ul>
+</div>
+       <br><br>
+       <br><br>
+      <div class="d-grid gap-2">
+  <div class="d-grid gap-2 col-6 mx-auto">
+  <button class="btn btn-primary" button type="submit">Check the current time of the location</button>
+</div>
+</div>
+   </form>
+        </div>
+    </div>
+    <div class="col order-first">
+        <h1>
+            The present time
+        </h1>
+    </div>
+  </div>
+</div>
+{% endblock %}
+</body>
+</html>

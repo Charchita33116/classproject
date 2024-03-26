@@ -1,0 +1,41 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block body %}
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+        <div><h1>Welcome to Charchita's Travel Tourism and Management</h1>
+            <form method="post" action="{% url 'weather' %}">
+                {% csrf_token %}
+                <h5><label>Enter a City Name:</label>
+                <input type="text" name="place">
+                <br><br>
+                    <button type="submit" class="btn btn-success btn-lg">Check the Weather</button>
+                </h5>
+            </form>
+</div>
+    </div>
+    <div class="col order-last">
+      <h1>Top Destinations</h1>
+        <br><h1>
+        {% if error_message %}
+        <p>{{ error_message }}</p>
+  {% else %}
+        <p>City: {{ city }}</p>
+        <p>Temperature: {{ temperature1 }} &#8451;</p>
+        <p>Humidity:{{ humidity }}%</p>
+  {% endif %}
+    </h1>
+    </div>
+  </div>
+</div>
+{% endblock %}
+</body>
+</html>
